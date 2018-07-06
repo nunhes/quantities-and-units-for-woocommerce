@@ -50,7 +50,8 @@ class WC_Quantities_and_Units_Actions {
 				$priority = $cart_priority - 1;
 			}
 			
-			add_action( 'woocommerce_single_product_summary', array( $this, 'display_minimum_quantity_note' ), $priority );
+			// add_action( 'woocommerce_single_product_summary', array( $this, 'display_minimum_quantity_note' ), $priority );
+add_action( 'woocommerce_after_shop_loop_item_title', array( $this, 'display_minimum_quantity_note' ), 10, 2);
 			
 		}	
 	}
@@ -65,11 +66,13 @@ class WC_Quantities_and_Units_Actions {
 	
 		global $product;
 		
+        /* commenting this to show minimum qty on product*/
 		if ( !is_product() ) {
 			return;
 		}
 		
-		if( $product->product_type == 'grouped' )
+		// if( $product->get_type() == 'grouped' )
+		if( $product->is_type( 'grouped' ) )
 			return;
 		
 		$settings = get_option( 'ipq_options' );

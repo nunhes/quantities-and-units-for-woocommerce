@@ -1,0 +1,163 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Quantities and Units for WooCommerce\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-05 23:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/"
+
+#: includes/class-wcqu-post-type.php:40 includes/class-wcqu-post-type.php:52
+msgid "Quantity Rules"
+msgstr ""
+
+#: includes/class-wcqu-post-type.php:41
+msgid "Quantity Rule"
+msgstr ""
+
+#: includes/class-wcqu-post-type.php:42
+msgid "Add New"
+msgstr ""
+
+#: includes/class-wcqu-post-type.php:43
+msgid "Add New Rule"
+msgstr ""
+
+#: includes/class-wcqu-post-type.php:44
+msgid "Edit Rule"
+msgstr ""
+
+#: includes/class-wcqu-post-type.php:45
+msgid "New Rule"
+msgstr ""
+
+#: includes/class-wcqu-post-type.php:46
+msgid "All Rules"
+msgstr ""
+
+#: includes/class-wcqu-post-type.php:47
+msgid "View Rule"
+msgstr ""
+
+#: includes/class-wcqu-post-type.php:48
+msgid "Search Ruless"
+msgstr ""
+
+#: includes/class-wcqu-post-type.php:49
+msgid "No rules found"
+msgstr ""
+
+#: includes/class-wcqu-post-type.php:50
+msgid "No rules found in Trash"
+msgstr ""
+
+#: includes/class-wcqu-post-type.php:217
+msgid "Minimum"
+msgstr ""
+
+#: includes/class-wcqu-post-type.php:220
+msgid "Maximum"
+msgstr ""
+
+#: includes/class-wcqu-post-type.php:223
+msgid "Out of Stock Minimum"
+msgstr ""
+
+#: includes/class-wcqu-post-type.php:226
+msgid "Out of Stock Maximum"
+msgstr ""
+
+#: includes/class-wcqu-post-type.php:229
+msgid "Step Value"
+msgstr ""
+
+#: includes/class-wcqu-post-type.php:232
+msgid "Priority"
+msgstr ""
+
+#: includes/class-wcqu-post-type.php:235
+msgid ""
+"*Note - the minimum value must be greater then or equal to the step value."
+msgstr ""
+
+#: includes/class-wcqu-post-type.php:236
+msgid ""
+"*Note - The rule with the lowest priority number will be used if multiple "
+"rules are applied to a single product."
+msgstr ""
+
+#: includes/class-wcqu-product-meta-box.php:31
+msgid "Product Quantity Rules"
+msgstr ""
+
+#: includes/class-wcqu-product-unit.php:106
+#: includes/class-wcqu-units-box.php:16
+msgid "Unit"
+msgstr ""
+
+#: includes/class-wcqu-validations.php:101
+#: includes/class-wcqu-validations.php:105
+#, php-format
+msgid "You must add a minimum of %s %s's to your cart."
+msgstr ""
+
+#: includes/class-wcqu-validations.php:115
+#: includes/class-wcqu-validations.php:119
+#, php-format
+msgid "You may only add a maximum of %s %s's to your cart."
+msgstr ""
+
+#: includes/class-wcqu-validations.php:138
+#: includes/class-wcqu-validations.php:142
+#, php-format
+msgid "You may only add a %s in multiples of %s to your cart."
+msgstr ""
+
+#: includes/class-wcqu-validations.php:167
+#: includes/class-wcqu-validations.php:171
+#, php-format
+msgid "Your cart must have a minimum of %s %s's to proceed."
+msgstr ""
+
+#: includes/class-wcqu-validations.php:180
+#: includes/class-wcqu-validations.php:184
+#, php-format
+msgid ""
+"You can only purchase a maximum of %s %s's at once and your cart has %s %s's "
+"in it already."
+msgstr ""
+
+#: includes/class-wcqu-validations.php:200
+#: includes/class-wcqu-validations.php:204
+#, php-format
+msgid "You may only purchase %s in multiples of %s."
+msgstr ""
+
+#. Name of the plugin
+msgid "Quantities and Units for WooCommerce"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Easily require your customers to buy a minimum / maximum / incremental "
+"amount of products to continue with their checkout."
+msgstr ""
+
+#. URI of the plugin
+msgid "https://wordpress.org/plugins/quantities-and-units-for-woocommerce/"
+msgstr ""
+
+#. Author of the plugin
+msgid "Nicholas Verwymeren"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://www.nickv.codes"
+msgstr ""

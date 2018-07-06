@@ -98,11 +98,11 @@ class WC_Quantities_and_Units_Quantity_Validations {
 		if ( $min_value != null && $min_value != 0 && $quantity < $min_value ) {
 			
 			if ( $WC_Quantities_and_Units->wc_version >= 2.1 ) {
-				wc_add_notice( sprintf( __( "You must add a minimum of %s %s's to your cart.", 'woocommerce' ), $min_value, $title ), 'error' );
+				wc_add_notice( sprintf( __( "You must add a minimum of %s %s's to your cart.", 'quantities-and-units' ), $min_value, $title ), 'error' );
 			
 			// Old Validation Style Support	
 			} else {
-				$woocommerce->add_error( sprintf( __( "You must add a minimum of %s %s's to your cart.", 'woocommerce' ), $min_value, $title ) );
+				$woocommerce->add_error( sprintf( __( "You must add a minimum of %s %s's to your cart.", 'quantities-and-units' ), $min_value, $title ) );
 			}
 			
 			return false;
@@ -112,11 +112,11 @@ class WC_Quantities_and_Units_Quantity_Validations {
 		if ( $max_value != null && $quantity > $max_value ) {
 			
 			if ( $WC_Quantities_and_Units->wc_version >= 2.1 ) {
-				wc_add_notice( sprintf( __( "You may only add a maximum of %s %s's to your cart.", 'woocommerce' ), $max_value, $title ), 'error' );
+				wc_add_notice( sprintf( __( "You may only add a maximum of %s %s's to your cart.", 'quantities-and-units' ), $max_value, $title ), 'error' );
 			
 			// Old Validation Style Support	
 			} else {
-				$woocommerce->add_error( sprintf( __( "You may only add a maximum of %s %s's to your cart.", 'woocommerce' ), $max_value, $title ) );
+				$woocommerce->add_error( sprintf( __( "You may only add a maximum of %s %s's to your cart.", 'quantities-and-units' ), $max_value, $title ) );
 			}
 			return false;
 		}
@@ -135,11 +135,11 @@ class WC_Quantities_and_Units_Quantity_Validations {
 		if ( $step != null && wcqu_fmod_round($rem_qty, $step) != 0 ) {
 		
 			if ( $WC_Quantities_and_Units->wc_version >= 2.1 ) {
-				wc_add_notice( sprintf( __( "You may only add a %s in multiples of %s to your cart.", 'woocommerce' ), $title, $step ), 'error' );
+				wc_add_notice( sprintf( __( "You may only add a %s in multiples of %s to your cart.", 'quantities-and-units' ), $title, $step ), 'error' );
 			
 			// Old Validation Style Support	
 			} else {
-				$woocommerce->add_error( sprintf( __( "You may only add a %s in multiples of %s to your cart.", 'woocommerce' ), $title, $step ) );
+				$woocommerce->add_error( sprintf( __( "You may only add a %s in multiples of %s to your cart.", 'quantities-and-units' ), $title, $step ) );
 			}
 			
 			return false;
@@ -151,7 +151,8 @@ class WC_Quantities_and_Units_Quantity_Validations {
 			// Get Cart Quantity for the product
 			foreach( $woocommerce->cart->get_cart() as $cart_item_key => $values ) {
 				$_product = $values['data'];
-				if( $product_id == $_product->id ) {
+				// if( $product_id == $_product->id ) {
+if( $product_id == $_product->get_id() ) {
 					$cart_qty = $values['quantity'];
 				}
 			}
@@ -163,11 +164,11 @@ class WC_Quantities_and_Units_Quantity_Validations {
 				if ( $min_value != null && ( $quantity + $cart_qty ) < $min_value ) {
 					
 					if ( $WC_Quantities_and_Units->wc_version >= 2.1 ) {
-						wc_add_notice( sprintf( __( "Your cart must have a minimum of %s %s's to proceed.", 'woocommerce' ), $min_value, $title ), 'error' );
+						wc_add_notice( sprintf( __( "Your cart must have a minimum of %s %s's to proceed.", 'quantities-and-units' ), $min_value, $title ), 'error' );
 					
 					// Old Validation Style Support	
 					} else {
-						$woocommerce->add_error( sprintf( __( "Your cart must have a minimum of %s %s's to proceed.", 'woocommerce' ), $min_value, $title ) );
+						$woocommerce->add_error( sprintf( __( "Your cart must have a minimum of %s %s's to proceed.", 'quantities-and-units' ), $min_value, $title ) );
 					}
 					return false;
 				}
@@ -176,11 +177,11 @@ class WC_Quantities_and_Units_Quantity_Validations {
 				if ( $max_value != null && ( $quantity + $cart_qty ) > $max_value ) {
 					
 					if ( $WC_Quantities_and_Units->wc_version >= 2.1 ) {
-						wc_add_notice( sprintf( __( "You can only purchase a maximum of %s %s's at once and your cart has %s %s's in it already.", 'woocommerce' ), $max_value, $title, $cart_qty, $title ), 'error' );
+						wc_add_notice( sprintf( __( "You can only purchase a maximum of %s %s's at once and your cart has %s %s's in it already.", 'quantities-and-units' ), $max_value, $title, $cart_qty, $title ), 'error' );
 					
 					// Old Validation Style Support	
 					} else {
-						$woocommerce->add_error( sprintf( __( "You can only purchase a maximum of %s %s's at once and your cart has %s %s's in it already.", 'woocommerce' ), $max_value, $title, $cart_qty, $title ) );
+						$woocommerce->add_error( sprintf( __( "You can only purchase a maximum of %s %s's at once and your cart has %s %s's in it already.", 'quantities-and-units' ), $max_value, $title, $cart_qty, $title ) );
 					}
 					return false;
 				}
@@ -196,11 +197,11 @@ class WC_Quantities_and_Units_Quantity_Validations {
 				$cart_qty_rem = (float)$cart_qty_rem;
 				if ( $step != null && $step != 0 && $cart_qty_rem != 0 && wcqu_fmod_round($cart_qty_rem, $step) != 0 ) {
 					if ( $WC_Quantities_and_Units->wc_version >= 2.1 ) {
-						wc_add_notice( sprintf( __("You may only purchase %s in multiples of %s.", 'woocommerce' ), $title, $step ), 'error' );
+						wc_add_notice( sprintf( __("You may only purchase %s in multiples of %s.", 'quantities-and-units' ), $title, $step ), 'error' );
 					
 					// Old Validation Style Support	
 					} else {
-						$woocommerce->add_error( sprintf( __("You may only purchase %s in multiples of %s.", 'woocommerce' ), $title, $step ) );
+						$woocommerce->add_error( sprintf( __("You may only purchase %s in multiples of %s.", 'quantities-and-units' ), $title, $step ) );
 					}
 					return false;
 				}
