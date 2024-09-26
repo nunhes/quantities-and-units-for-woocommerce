@@ -35,7 +35,7 @@ class WC_Quantities_and_Units_Quantity_Rule_Post_Type {
 	*	Register Quantity Rule Post Type
 	*/	
 	public function quantity_rule_init() {
-	
+		// /_("Minimum", 'quantities-and-units');
 		$labels = array(
 			'name'               => 'Quantity Rules',
 			'singular_name'      => 'Quantity Rule',
@@ -113,6 +113,19 @@ class WC_Quantities_and_Units_Quantity_Rule_Post_Type {
 		        echo get_post_meta( $id, '_step', true );	       
 		        break;
 		        
+		    /*case 'cats':
+		   		$cats = get_post_meta( $id, '_cats', false);
+		   		if ( $cats != false and count( $cats[0] ) > 0 ) {	   		
+			   		foreach ( $cats[0] as $cat ){
+		
+			   			$taxonomy = 'product_cat'; 	
+				   		$term = get_term_by( 'id', $cat, $taxonomy );
+			   			$link = get_term_link( $term );	
+			   			
+			   			echo "<a href='" . $link . "'>" . $term->name . "</a><br />";	
+			   		}
+			   	} 
+		        break;*/ 
 		    case 'cats':
 		   		$cats = get_post_meta( $id, '_cats', false);
 		   		if ( $cats != false and count( $cats[0] ) > 0 ) {	   		
@@ -122,6 +135,11 @@ class WC_Quantities_and_Units_Quantity_Rule_Post_Type {
 				   		$term = get_term_by( 'id', $cat, $taxonomy );
 			   			$link = get_term_link( $term );	
 			   			
+						if ( !$term || is_wp_error( $link ) ) {
+							echo "Unknown / Deleted Category<br />";
+							continue;
+						}
+
 			   			echo "<a href='" . $link . "'>" . $term->name . "</a><br />";	
 			   		}
 			   	} 
@@ -196,26 +214,26 @@ class WC_Quantities_and_Units_Quantity_Rule_Post_Type {
 		
 		?>
 			<div class="wpbo-meta">
-				<label for="min">Minimum</label>
+				<label for="min"><?php _e("Minimum", 'quantities-and-units'); ?></label>
 				<input type="number" name="min" id="min" value="<?php echo $min ?>" step="any" />
 			
-				<label for="max">Maximum</label>
+				<label for="max"><?php _e("Maximum", 'quantities-and-units'); ?></label>
 				<input type="number" name="max" id="max" value="<?php echo $max ?>" step="any" />
 				
-				<label for="_wpbo_minimum_oos">Out of Stock Minimum</label>
+				<label for="_wpbo_minimum_oos"><?php _e("Out of Stock Minimum", 'quantities-and-units'); ?></label>
 				<input type="number" name="min_oos" value="<?php echo $min_oos ?>" step="any" />
 				
-				<label for="_wpbo_maximum_oos">Out of Stock Maximum</label>
+				<label for="_wpbo_maximum_oos"><?php __e("Out of Stock Maximum", 'quantities-and-units'); ?></label>
 				<input type="number" name="max_oos" value="<?php echo $max_oos ?>" step="any" />
 				
-				<label for="step">Step Value</label>
+				<label for="step"><?php _e("Step Value", 'quantities-and-units'); ?></label>
 				<input type="number" step="any" name="step" id="step" value="<?php echo $step ?>" step="any" />
 				
-				<label for="step">Priority</label>
+				<label for="step"><?php _e("Priority", 'quantities-and-units'); ?></label>
 				<input type="number" name="priority" id="priority" value="<?php echo $priority ?>" />			
 			</div>
-			<p><em>*Note - the minimum value must be greater then or equal to the step value.</em><br />
-			<em>*Note - The rule with the lowest priority number will be used if multiple rules are applied to a single product.</em></p>
+			<p><em><?php _e("*Note - the minimum value must be greater then or equal to the step value.", 'quantities-and-units'); ?></em><br />
+			<em><?php _e("*Note - The rule with the lowest priority number will be used if multiple rules are applied to a single product.", 'quantities-and-units'); ?></em></p>
 		<?php	
 	}
 	
